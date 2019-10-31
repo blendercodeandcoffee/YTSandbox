@@ -1,0 +1,50 @@
+﻿<Window x:Class="Terminkalender.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Terminkalender"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Terminkalender" Height="450" Width="800" MinWidth="500" MinHeight="420" Closing="Window_Closing" Background="#e8dbff">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Calendar x:Name="calendar" Grid.Column="0" Grid.Row="0" Margin="0,0,10,10" />
+        <DataGrid x:Name="dgTermine" Grid.Column="1" Grid.Row="0" SelectionChanged="dgTermine_SelectionChanged" IsReadOnly="True" CanUserAddRows="False" Margin="0,0,0,10" GridLinesVisibility="None" VerticalAlignment="Stretch" MaxHeight="240" />
+        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/><!-- 0 -->
+                <ColumnDefinition Width="200"/> <!-- 1 -->
+                <ColumnDefinition Width="Auto"/><!-- 2 -->
+                <ColumnDefinition Width="1*"/>  <!-- 3 -->
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/><!-- 0 -->
+                <RowDefinition Height="Auto"/><!-- 1 -->
+                <RowDefinition Height="Auto"/><!-- 2 -->
+                <RowDefinition Height="1*"/>  <!-- 3 -->
+                <RowDefinition Height="Auto"/><!-- 4 -->
+            </Grid.RowDefinitions>
+            <TextBlock Text="Fälligkeit"/>
+            <TextBlock Text="Kurztext" Grid.Row="1"/>
+            <TextBlock Text="Ort" Grid.Row="2"/>
+            <xctk:DateTimePicker Margin="10,0,0,10" x:Name="dtpFaelligkeit" Grid.Column="1" Format="Custom" FormatString="dd.MM.yyyy HH:mm" />
+            <TextBox Margin="10,0,0,10" x:Name="txtKurztext" Grid.Column="1" Grid.Row="1" />
+            <TextBox Margin="10,0,0,10" x:Name="txtOrt" Grid.Column="1" Grid.Row="2" />
+            <TextBlock Margin="10,0,0,0" Text="Langtext" Grid.Column="2"/>
+            <TextBox Margin="10,0,0,10" x:Name="txtLangtext" Grid.Column="3" Grid.RowSpan="4" AcceptsReturn="True" AcceptsTab="True" />
+            <StackPanel Grid.Row="4" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Width="90" Margin="10,0,0,0" x:Name="btnNeu" Content="Neu" Click="btnNeu_Click"/>
+                <Button Width="90" Margin="10,0,0,0" x:Name="btnSpeichern" Content="Speichern" Click="btnSpeichern_Click"/>
+                <Button Width="90" Margin="10,0,0,0" x:Name="btnAbbrechen" Content="Abbrechen" Click="btnAbbrechen_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

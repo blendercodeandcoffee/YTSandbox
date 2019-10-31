@@ -3,3 +3,11 @@
 ################################################################################
 
 /Terminkalender/obj
+/CoreConsole/bin/Debug/netcoreapp3.0
+/CoreConsole/obj
+/.vs
+/SandboxWPF/bin/Debug/netcoreapp3.0
+/SandboxWPF/obj
+/Terminkalender/bin/Debug
+/SandboxProjekte.sln
+/packages/Extended.Wpf.Toolkit.3.6.0
